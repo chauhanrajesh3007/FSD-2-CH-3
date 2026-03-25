@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Average Calculator</title>
+</head>
+<body>
+
+<script>
+
+const addr = 'http://localhost:8080/default.html?m1=30&m2=60&m3=60';
+const url = new URL(addr);
+const params = url.searchParams;
+
+let sum = 0;
+let count = 0;
+
+for (const value of params.values()) {   
+    const num = parseFloat(value);
+    if (!isNaN(num)) {
+        sum += num;
+        count++;
+    }
+}
+
+const average = count > 0 ? sum / count : 0;
+
+console.log('Numbers found :', count);
+console.log('Average      :', average);   
